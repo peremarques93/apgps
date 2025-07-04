@@ -86,47 +86,47 @@
       border-radius: 8px;
       box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
-.cuadricula-fotos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
 
-@media (max-width: 600px) {
-  .cuadricula-fotos {
-    grid-template-columns: 1fr;
-  }
-}
+    .cuadricula-fotos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
 
     .foto-bloque img {
       width: 100%;
-      height: 200px;
+      height: 250px; /* Aumentado para que se vean mejor */
       object-fit: cover;
       border-radius: 8px;
       box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
+
     .foto-bloque p {
       margin-top: 0.5rem;
       font-weight: bold;
       text-align: center;
     }
+
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1rem;
     }
+
     .feature {
       position: relative;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0 8px rgba(0,0,0,0.3);
     }
+
     .feature img {
       width: 100%;
       height: 180px;
       object-fit: cover;
       opacity: 0.4;
     }
+
     .overlay {
       position: absolute;
       top: 0;
@@ -141,10 +141,12 @@
       padding: 1rem;
       text-align: center;
     }
+
     .cta {
       text-align: center;
       margin-top: 2rem;
     }
+
     .cta a {
       display: inline-block;
       background: #e0e0e0;
@@ -154,11 +156,13 @@
       margin: 0.5rem;
       text-decoration: none;
     }
+
     .cta-contacto {
       background: #444;
       padding: 2rem;
       border-radius: 8px;
     }
+
     .cta-contacto input, .cta-contacto textarea {
       width: 100%;
       padding: 0.5rem;
@@ -166,6 +170,7 @@
       border-radius: 4px;
       border: none;
     }
+
     .cta-contacto button {
       background: #252525;
       color: #f1f1f1;
@@ -174,15 +179,27 @@
       border-radius: 4px;
       cursor: pointer;
     }
+
     .cta-contacto button:hover {
       background: #333;
     }
+
     footer {
       background: #252525;
       color: #ccc;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE AJUSTES */
+    @media (max-width: 600px) {
+      .cuadricula-fotos {
+        grid-template-columns: 1fr;
+      }
+      .features {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
   <script>
