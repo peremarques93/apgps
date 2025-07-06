@@ -7,92 +7,91 @@
   <link rel="icon" type="image/png" href="/apgps/favicon.png">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #2c2c2c;
-      margin: 0;
-      padding: 0;
-      color: #f1f1f1;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #e0e0e0;
-      color: #1a1a1a;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .header-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    .logo {
-      height: 50px;
-    }
-    .titulo-header h1 {
-      margin: 0.5rem 0 0 0;
-      font-size: 1.3rem;
-      text-align: center;
-    }
-    .menu-hamburguesa {
-      position: relative;
-    }
-    .menu-toggle {
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: #252525;
-      cursor: pointer;
-    }
-    .menu-contenido {
-      display: none;
-      position: absolute;
-      right: 0;
-      top: 2.5rem;
-      background: rgba(240,240,240,0.95);
-      padding: 1rem;
-      border-radius: 4px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .menu-contenido.mostrar {
-      display: flex;
-    }
-    .menu-contenido a {
-      color: #252525;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .menu-contenido a:hover {
-      text-decoration: underline;
-    }
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .imagenes-lado-a-lado {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .imagenes-lado-a-lado img {
-      max-width: 100%;
-      width: 300px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
-    }
+  font-family: Arial, sans-serif;
+  background-color: #2c2c2c;
+  margin: 0;
+  padding: 0;
+  color: #f1f1f1;
+  line-height: 1.6;
+}
+header {
+  background-color: #e0e0e0;
+  color: #1a1a1a;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.logo {
+  height: 50px;
+}
+.titulo-header h1 {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+.menu-hamburguesa {
+  position: relative;
+}
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #252525;
+  cursor: pointer;
+}
+.menu-contenido {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 2.5rem;
+  background: rgba(240,240,240,0.95);
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.menu-contenido.mostrar {
+  display: flex;
+}
+.menu-contenido a {
+  color: #252525;
+  text-decoration: none;
+  font-weight: bold;
+}
+.menu-contenido a:hover {
+  text-decoration: underline;
+}
+section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.imagenes-lado-a-lado {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.imagenes-lado-a-lado img {
+  max-width: 100%;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
 
 .cuadricula-fotos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
-
 .foto-bloque img {
   width: 100%;
   height: 300px;
@@ -100,20 +99,18 @@
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
-
-    .foto-bloque p {
-      margin-top: 0.5rem;
-      font-weight: bold;
-      text-align: center;
-    }
-
- .features {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  justify-content: center;
+.foto-bloque p {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  text-align: center;
 }
 
+.features {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .feature {
   flex: 0 0 210px;
   position: relative;
@@ -121,14 +118,12 @@
   overflow: hidden;
   box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
-
 .feature img {
   width: 100%;
   height: 185px;
   object-fit: cover;
   opacity: 0.4;
 }
-
 .overlay {
   position: absolute;
   top: 0;
@@ -143,76 +138,72 @@
   padding: 0.5rem;
   text-align: center;
 }
-
 .overlay h3 {
   margin: 0.2rem 0;
   font-size: 1rem;
-  line-height: 1;
+  line-height: 1.2;
   word-break: break-word;
   max-width: 90%;
 }
-
 .overlay p {
   margin: 0.2rem 0;
   font-size: 0.9rem;
-  line-height: 1;
+  line-height: 1.2;
   word-break: break-word;
   max-width: 90%;
 }
-    
-    .cta {
-      text-align: center;
-      margin-top: 2rem;
-    }
 
-    .cta a {
-      display: inline-block;
-      background: #e0e0e0;
-      color: #000;
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      margin: 0.5rem;
-      text-decoration: none;
-    }
-
-    .cta-contacto {
-      background: #444;
-      padding: 2rem;
-      border-radius: 8px;
-    }
-
-    .cta-contacto input, .cta-contacto textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border-radius: 4px;
-      border: none;
-    }
-
-    .cta-contacto button {
-      background: #252525;
-      color: #f1f1f1;
-      padding: 0.7rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .cta-contacto button:hover {
-      background: #333;
-    }
-
-    footer {
-      background: #252525;
-      color: #ccc;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
+.cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+.cta a {
+  display: inline-block;
+  background: #e0e0e0;
+  color: #000;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  margin: 0.5rem;
+  text-decoration: none;
+}
+.cta-contacto {
+  background: #444;
+  padding: 2rem;
+  border-radius: 8px;
+}
+.cta-contacto input, .cta-contacto textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 4px;
+  border: none;
+}
+.cta-contacto button {
+  background: #252525;
+  color: #f1f1f1;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cta-contacto button:hover {
+  background: #333;
+}
+footer {
+  background: #252525;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
 
 @media (max-width: 600px) {
   .cuadricula-fotos {
     grid-template-columns: 1fr;
+  }
+  .features {
+    flex-direction: column;
+    align-items: center;
   }
 }
   </style>
