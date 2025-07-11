@@ -2,245 +2,249 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>APGps</title>
   <link rel="icon" type="image/png" href="/apgps/favicon.png">
   <style>
+    /* ====== Base ====== */
     body {
-  font-family: Arial, sans-serif;
-  background-color: #2c2c2c;
-  margin: 0;
-  padding: 0;
-  color: #f1f1f1;
-  line-height: 1.6;
-}
-header {
-  background-color: #e0e0e0;
-  color: #1a1a1a;
-  padding: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.header-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.logo {
-  height: 50px;
-}
-.titulo-header h1 {
-  margin: 0.5rem 0 0 0;
-  font-size: 1.3rem;
-  text-align: center;
-}
-.menu-hamburguesa {
-  position: relative;
-}
-.menu-toggle {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #252525;
-  cursor: pointer;
-}
-.menu-contenido {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 2.5rem;
-  background: rgba(240,240,240,0.95);
-  padding: 1rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  flex-direction: column;
-  gap: 0.5rem;
-  z-index: 1001;
-  min-width: 150px;
-}
+      font-family: Arial, sans-serif;
+      background-color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+      color: #f1f1f1;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #e0e0e0;
+      color: #1a1a1a;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      height: 50px;
+    }
+    .titulo-header h1 {
+      margin: 0;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+    .menu-hamburguesa {
+      position: relative;
+    }
+    .menu-toggle {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #252525;
+      cursor: pointer;
+    }
+    .menu-contenido {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 2.5rem;
+      background: rgba(240,240,240,0.95);
+      padding: 1rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 1001;
+      min-width: 150px;
+    }
+    .menu-contenido.mostrar {
+      display: flex;
+    }
+    .menu-contenido a {
+      color: #252525;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .menu-contenido a:hover {
+      text-decoration: underline;
+    }
 
-@media (max-width: 600px) {
-  .menu-contenido {
-    top: 2.5rem;
-    right: 0.5rem;
-    min-width: 120px;
-    font-size: 0.9rem;
-  }
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
 
-  .menu-toggle {
-    font-size: 1.8rem;
-  }
-  
-.menu-contenido.mostrar {
-  display: flex;
-}
-.menu-contenido a {
-  color: #252525;
-  text-decoration: none;
-  font-weight: bold;
-}
-.menu-contenido a:hover {
-  text-decoration: underline;
-}
-section {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-.imagenes-lado-a-lado {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-.imagenes-lado-a-lado img {
-  max-width: 100%;
-  width: 300px;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-}
+    /* Primera sección de imágenes */
+    .imagenes-lado-a-lado {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .imagenes-lado-a-lado img {
+      width: 300px;
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
 
-.cuadricula-fotos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
-.foto-bloque img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-}
-.foto-bloque p {
-  margin-top: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-}
+    /* Cuadrícula 2×2 en escritorio, columna en móvil */
+    .cuadricula-fotos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .foto-bloque img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+    .foto-bloque p {
+      margin-top: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+    }
 
-.features {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.feature {
-  flex: 0 0 210px;
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 0 8px rgba(0,0,0,0.3);
-}
-.feature img {
-  width: 100%;
-  height: 185px;
-  object-fit: cover;
-  opacity: 0.4;
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #fff;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  text-align: center;
-}
-.overlay h3 {
-  margin: 0.2rem 0;
-  font-size: 1rem;
-  line-height: 1.2;
-  word-break: break-word;
-  max-width: 90%;
-}
-.overlay p {
-  margin: 0.2rem 0;
-  font-size: 0.9rem;
-  line-height: 1.2;
-  word-break: break-word;
-  max-width: 90%;
-}
+    /* Servicios en una fila */
+    .features {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      overflow-x: auto;
+      padding: 0 1rem;
+    }
+    .feature {
+      flex: 0 0 210px;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    }
+    .feature img {
+      width: 100%;
+      height: 185px;
+      object-fit: cover;
+      opacity: 0.4;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem;
+      text-align: center;
+      color: #fff;
+    }
+    .overlay h3 {
+      margin: 0.5rem 0 0.2rem;
+      font-size: 1rem;
+      line-height: 1.2;
+      max-width: 90%;
+      word-break: break-word;
+    }
+    .overlay p {
+      margin: 0.2rem 0;
+      font-size: 0.9rem;
+      line-height: 1.2;
+      max-width: 90%;
+      word-break: break-word;
+    }
 
-.cta {
-  text-align: center;
-  margin-top: 2rem;
-}
-.cta a {
-  display: inline-block;
-  background: #e0e0e0;
-  color: #000;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
-  margin: 0.5rem;
-  text-decoration: none;
-}
-.cta-contacto {
-  background: #444;
-  padding: 2rem;
-  border-radius: 8px;
-}
-.cta-contacto input, .cta-contacto textarea {
-  width: 100%;
-  padding: 0.5rem;
-  margin: 0.5rem 0;
-  border-radius: 4px;
-  border: none;
-}
-.cta-contacto button {
-  background: #252525;
-  color: #f1f1f1;
-  padding: 0.7rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.cta-contacto button:hover {
-  background: #333;
-}
-footer {
-  background: #252525;
-  color: #ccc;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
+    .cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .cta a {
+      display: inline-block;
+      background: #e0e0e0;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      margin: 0.5rem;
+      text-decoration: none;
+    }
 
-@media (max-width: 600px) {
-  .cuadricula-fotos {
-    grid-template-columns: 1fr;
-  }
-  .features {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  @media (max-width: 600px) {
-  header {
-    padding: 0.5rem;
-  }
+    .cta-contacto {
+      background: #444;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    .cta-contacto input,
+    .cta-contacto textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 4px;
+    }
+    .cta-contacto button {
+      background: #252525;
+      color: #f1f1f1;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .cta-contacto button:hover {
+      background: #333;
+    }
 
-  .titulo-header h1 {
-    font-size: 1rem;
-    text-align: center;
-  }
+    footer {
+      background: #252525;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
 
-  .logo {
-    height: 40px;
-  }
+    /* ====== Adaptaciones para móvil ====== */
+    @media (max-width: 600px) {
+      /* Header más compacto y no fijo */
+      header {
+        padding: 0.5rem;
+        position: static;
+      }
+      .logo {
+        height: 40px;
+      }
+      .titulo-header h1 {
+        font-size: 1rem;
+      }
+      .menu-toggle {
+        font-size: 1.8rem;
+      }
+      .menu-contenido {
+        top: 2.5rem;
+        right: 0.5rem;
+        min-width: 120px;
+        font-size: 0.9rem;
+      }
 
-  @media (max-width: 600px) {
-  header {
-    position: static;
-  }
+      /* Cuadrícula apilada */
+      .cuadricula-fotos {
+        grid-template-columns: 1fr;
+      }
 
-}
+      /* Servicios apilados */
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
   <script>
     function toggleMenu() {
@@ -259,117 +263,115 @@ footer {
 </head>
 <body>
 
-<header>
-  <div class="header-wrapper">
-    <img src="APGPS.png" alt="Logo" class="logo">
-    <div class="titulo-header">
-      <h1>Localiza y protege con nuestro GPS inteligente</h1>
-    </div>
-    <div class="menu-hamburguesa">
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-      <div class="menu-contenido" id="menu">
-        <a href="#inicio">Inicio</a>
-        <a href="#producto">Producto</a>
-        <a href="#web">Web</a>
-        <a href="#contacto">Contacto</a>
+  <header>
+    <div class="header-wrapper">
+      <img src="APGPS.png" alt="Logo" class="logo">
+      <div class="titulo-header">
+        <h1>Localiza y protege con nuestro GPS inteligente</h1>
+      </div>
+      <div class="menu-hamburguesa">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav class="menu-contenido" id="menu">
+          <a href="#inicio">Inicio</a>
+          <a href="#producto">Producto</a>
+          <a href="#web">Web</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<section id="inicio">
-  <h2>Dispositivo GPS</h2>
-  <p>Medidas: 3 x 3 x 2 cm</p>
-  <p>Rango de detección: hasta 20 km</p>
-  <p>Autonomía: 2 días sin luz solar / Funcionamiento infinito con luz solar</p>
-  <p></p>
-  <div class="imagenes-lado-a-lado">
-    <img src="render proto gps up.png" alt="Imagen 1">
-    <img src="render proto gps.png" alt="Imagen 2">
-  </div>
-</section>
+  <section id="inicio">
+    <h2>Dispositivo GPS</h2>
+    <p>Medidas: 3 x 3 x 2 cm</p>
+    <p>Rango de detección: hasta 20 km</p>
+    <p>Autonomía: 2 días sin luz solar / Funcionamiento infinito con luz solar</p>
+    <div class="imagenes-lado-a-lado">
+      <img src="render proto gps up.png" alt="Imagen 1">
+      <img src="render proto gps.png" alt="Imagen 2">
+    </div>
+  </section>
 
-<section id="producto">
-  <h2>¿Cómo funciona?</h2>
-  <p>1. Vincula los dispositivos GPS a la plataforma web o a la app móvil.</p>
-  <p>2. Coloca el dispositivo en el activo que quieras proteger.</p>
-  <p>3. Supervisa la ubicación en tiempo real desde cualquier dispositivo conectado.</p>
-  <p>4. Configura zonas seguras (geovallas) y recibe alertas automáticas si se detecta una salida no autorizada.</p>
-  <p></p>
+  <section id="producto">
+    <h2>¿Cómo funciona?</h2>
+    <p>1. Vincula los dispositivos GPS a la plataforma web o a la app móvil.</p>
+    <p>2. Coloca el dispositivo en el activo que quieras proteger.</p>
+    <p>3. Supervisa la ubicación en tiempo real desde cualquier dispositivo conectado.</p>
+    <p>4. Configura zonas seguras (geovallas) y recibe alertas automáticas si se detecta una salida no autorizada.</p>
 
-  <div class="cuadricula-fotos">
-    <div class="foto-bloque">
-      <img src="nodos.png" alt="Plataforma web">
-      <p>Dispositivos vinculados</p>
-    </div>
-    <div class="foto-bloque">
-      <img src="render proto gps.png" alt="Dispositivo GPS">
-      <p>Colocación del dispositivo</p>
-    </div>
-    <div class="foto-bloque">
-      <img src="zona.png" alt="Vista mapa">
-      <p>Geovallas definidas</p>
-    </div>
-    <div class="foto-bloque">
-      <img src="notificacion.png" alt="Alerta Telegram">
-      <p>Alerta dispositivo fuera de la zona</p>
-    </div>
-  </div>
-</section>
-
-<section id="web">
-  <h2>Servicios</h2>
-  <div class="features">
-    <div class="feature">
-      <img src="render proto gps up.png" alt="Ubicación">
-      <div class="overlay">
-        <h3>📍 Ubicación en tiempo real</h3>
-        <p>Accede a la posición exacta de tus dispositivos desde cualquier lugar.</p>
+    <div class="cuadricula-fotos">
+      <div class="foto-bloque">
+        <img src="nodos.png" alt="Plataforma web">
+        <p>Dispositivos vinculados</p>
+      </div>
+      <div class="foto-bloque">
+        <img src="render proto gps.png" alt="Dispositivo GPS">
+        <p>Colocación del dispositivo</p>
+      </div>
+      <div class="foto-bloque">
+        <img src="zona.png" alt="Vista mapa">
+        <p>Geovallas definidas</p>
+      </div>
+      <div class="foto-bloque">
+        <img src="notificacion.png" alt="Alerta Telegram">
+        <p>Alerta dispositivo fuera de la zona</p>
       </div>
     </div>
-    <div class="feature">
-      <img src="render proto gps.png" alt="Alertas">
-      <div class="overlay">
-        <h3>⚠️ Alertas geográficas</h3>
-        <p>Recibe notificaciones inmediatas si un dispositivo sale de la zona definida.</p>
+  </section>
+
+  <section id="web">
+    <h2>Servicios</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="render proto gps up.png" alt="Ubicación">
+        <div class="overlay">
+          <h3>📍 Ubicación en tiempo real</h3>
+          <p>Accede a la posición exacta de tus dispositivos desde cualquier lugar.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <img src="render proto gps.png" alt="Alertas">
+        <div class="overlay">
+          <h3>⚠️ Alertas geográficas</h3>
+          <p>Recibe notificaciones inmediatas si un dispositivo sale de la zona definida.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <img src="render proto gps.png" alt="Energía solar">
+        <div class="overlay">
+          <h3>☀️ Energía solar</h3>
+          <p>Batería autónoma con recarga solar para un funcionamiento continuo.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <img src="render proto gps up.png" alt="Control remoto">
+        <div class="overlay">
+          <h3>📲 Gestión remota</h3>
+          <p>Control completo desde la app móvil o el navegador web.</p>
+        </div>
       </div>
     </div>
-    <div class="feature">
-      <img src="render proto gps.png" alt="Energía solar">
-      <div class="overlay">
-        <h3>☀️ Energía solar</h3>
-        <p>Batería autónoma con recarga solar para un funcionamiento continuo.</p>
-      </div>
-    </div>
-    <div class="feature">
-      <img src="render proto gps up.png" alt="Control remoto">
-      <div class="overlay">
-        <h3>📲 Gestión remota</h3>
-        <p>Control completo desde la app móvil o el navegador web.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="cta">
-  <p>Accede a la plataforma de forma gratuita y gestiona tus dispositivos con total comodidad.</p>
-  <a href="http://3.66.72.52:5173" target="_blank">WEB</a>
-  <a href="http://3.66.72.52:5173" target="_blank">APP</a>
-</section>
+  <section class="cta">
+    <p>Accede a la plataforma de forma gratuita y gestiona tus dispositivos con total comodidad.</p>
+    <a href="http://3.66.72.52:5173" target="_blank">WEB</a>
+    <a href="http://3.66.72.52:5173" target="_blank">APP</a>
+  </section>
 
-<section id="contacto" class="cta-contacto">
-  <h2>Si deseas más información o soporte, contáctanos:</h2>
-  <form onsubmit="enviarFormulario(event)">
-    <input type="text" id="nombre" placeholder="Tu nombre" required>
-    <textarea id="mensaje" placeholder="Tu mensaje" required></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-  <p>O vía <a href="https://wa.me/34672096991" target="_blank">WhatsApp</a>.</p>
-</section>
+  <section id="contacto" class="cta-contacto">
+    <h2>Si deseas más información o soporte, contáctanos:</h2>
+    <form onsubmit="enviarFormulario(event)">
+      <input type="text" id="nombre" placeholder="Tu nombre" required>
+      <textarea id="mensaje" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <p>O vía <a href="https://wa.me/34672096991" target="_blank">WhatsApp</a>.</p>
+  </section>
 
-<footer>
-  &copy; 2025 APGps | Sistema de localización GPS | Aviso legal y privacidad
-</footer>
+  <footer>
+    &copy; 2025 APGps | Sistema de localización GPS | Aviso legal y privacidad
+  </footer>
 
 </body>
 </html>
