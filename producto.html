@@ -122,6 +122,27 @@
         min-width: 120px;
         font-size: 0.9rem;
       }
+      /* Formulario: campos y botón alineados */
+.cta-contacto form {
+  display: flex;
+  align-items: flex-start;   /* alinea la parte superior */
+  gap: 1rem;                 /* espacio entre los elementos */
+  flex-wrap: wrap;           /* que baje si no cabe en móvil */
+}
+
+/* Inputs y textarea ocupan el mismo ancho y box‑sizing */
+.cta-contacto input,
+.cta-contacto textarea {
+  flex: 1;                   /* reparten el espacio equitativamente */
+  min-width: 150px;          /* ancho mínimo para que no se encoja mucho */
+  box-sizing: border-box;    /* padding incluido en el ancho */
+  margin: 0;                 /* quitamos márgenes extra */
+}
+
+/* Si quieres forzar la misma altura (opcional) */
+.cta-contacto input {
+  height: 2.5rem;            /* ajusta según te convenga */
+}
     }
   </style>
   <script>
