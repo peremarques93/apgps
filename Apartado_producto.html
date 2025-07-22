@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APGps – Detalle del Producto</title>
+  <link rel="icon" type="image/png" href="/apgps/favicon.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+      color: #f1f1f1;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #e0e0e0;
+      color: #1a1a1a;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      height: 50px;
+    }
+    .titulo-header h1 {
+      margin: 0;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+    .menu-hamburguesa {
+      position: relative;
+    }
+    .menu-toggle {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #252525;
+      cursor: pointer;
+    }
+    .menu-contenido {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 2.5rem;
+      background: rgba(240,240,240,0.95);
+      padding: 1rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 1001;
+      min-width: 150px;
+    }
+    .menu-contenido.mostrar {
+      display: flex;
+    }
+    .menu-contenido a {
+      color: #252525;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .menu-contenido a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h2 {
+      color: #007acc;
+      margin-bottom: 0.5rem;
+    }
+    p, li {
+      margin-bottom: 1rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    
+    @media (max-width: 600px) {
+      header {
+        padding: 0.5rem;
+        position: static;
+      }
+      .logo { height: 40px; }
+      .titulo-header h1 { font-size: 1rem; }
+      .menu-toggle { font-size: 1.8rem; }
+      .menu-contenido {
+        top: 2.5rem;
+        right: auto;
+        left: 0.5rem;
+        min-width: 120px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("mostrar");
+    }
+    function enviarFormulario(event) {
+      event.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      const mensaje = document.getElementById("mensaje").value;
+      const mailto = `mailto:peremarques.vancells@gmail.com?subject=Contacto APGps de ${encodeURIComponent(nombre)}&body=${encodeURIComponent(mensaje)}`;
+      window.location.href = mailto;
+      const whatsapp = `https://wa.me/34672096991?text=${encodeURIComponent(`Hola, soy ${nombre}. ${mensaje}`)}`;
+      window.open(whatsapp, '_blank');
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="header-wrapper">
+      <img src="APGPS.png" alt="Logo" class="logo">
+      <div class="titulo-header">
+        <h1>Detalle del Producto APGps</h1>
+      </div>
+      <div class="menu-hamburguesa">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav class="menu-contenido" id="menu">
+          <a href="index.html">Inicio</a>
+          <a href="producto.html">Producto</a>
+          <a href="index.html#web">Web</a>
+          <a href="index.html#contacto">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section id="introduccion">
+    <h2>¿Qué es APGps?</h2>
+    <p>
+      APGps es un sistema de localización GPS diseñado para ofrecer un control total de tus activos.
+      Combina un dispositivo compacto, batería con recarga solar y una plataforma web/app de gestión
+      para garantizar supervisión en tiempo real, geovallas y notificaciones instantáneas.
+    </p>
+  </section>
+
+  <section id="hardware">
+    <h2>Componentes de hardware</h2>
+    <ul>
+      <li><strong>Carcasa resistente IP67</strong> – Protegida contra polvo y agua.</li>
+      <li><strong>Módulo GNSS multibanda</strong> – Compatible con GPS, GLONASS, Galileo y BeiDou.</li>
+      <li><strong>Módulo celular 2G/3G/4G</strong> – Transmisión de datos en tiempo real.</li>
+      <li><strong>Batería interna recargable</strong> – Hasta 48 h sin luz solar.</li>
+      <li><strong>Célula solar integrada</strong> – Mantiene la carga indefinidamente con exposición.</li>
+      <li><strong>Antena externa</strong> – Mejora la recepción en ubicaciones difíciles.</li>
+    </ul>
+  </section>
+
+  <section id="conectividad">
+    <h2>Conectividad y Comunicaciones</h2>
+    <p>
+      El dispositivo transmite su posición cada 10 segundos (configurable) mediante red celular.  
+      Se soportan protocolos seguros (HTTPS) y encriptación AES-256 para proteger los datos en tránsito.
+    </p>
+  </section>
+
+  <section id="software">
+    <h2>Plataforma Web &amp; App</h2>
+    <ul>
+      <li><strong>Interfaz intuitiva</strong> – Visualiza mapas, listas y dashboards personalizados.</li>
+      <li><strong>Geovallas configurables</strong> – Define zonas seguras y notificaciones automáticas.</li>
+      <li><strong>Alertas multicanal</strong> – Email, SMS y Telegram según tu preferencia.</li>
+      <li><strong>Histórico de posiciones</strong> – Reproduce recorridos y exporta datos en CSV.</li>
+      <li><strong>Gestión de usuarios</strong> – Control de accesos y roles administrativos.</li>
+    </ul>
+  </section>
+
+  <section id="caracteristicas">
+    <h2>Características Destacadas</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="render proto gps up.png" alt="Precisión">
+        <div class="overlay">
+          <h3>🔍 Alta precisión</h3>
+          <p>Hasta 2 m de exactitud gracias a GNSS multibanda.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <img src="render proto gps.png" alt="Autonomía">
+        <div class="overlay">
+          <h3>⏱️ Autonomía prolongada</h3>
+          <p>48 h sin sol; operación continua con luz solar.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <img src="render proto gps up.png" alt="Geovallas">
+        <div class="overlay">
+          <h3>📏 Geovallas inteligentes</h3>
+          <p>Define perímetros y recibe alertas de entradas/salidas.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <img src="render proto gps.png" alt="Seguridad">
+        <div class="overlay">
+          <h3>🔒 Seguridad avanzada</h3>
+          <p>Comunicación cifrada y autenticación segura.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="cta-contacto">
+    <h2>¿Tienes dudas o quieres una demo?</h2>
+    <form onsubmit="enviarFormulario(event)">
+      <input type="text" id="nombre" placeholder="Tu nombre" required>
+      <textarea id="mensaje" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <p>O contáctanos por <a href="https://wa.me/34672096991" target="_blank">WhatsApp</a>.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 APGps | Sistema de localización GPS | Aviso legal y privacidad
+  </footer>
+
+</body>
+</html>
